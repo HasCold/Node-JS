@@ -1,15 +1,9 @@
-// ******************* Global and Non-Global Module *****************
+const http = require("http");
 
-// Non Global Module :- FileSystem(fs), Buffer, HTTP ; The module which need to be import that will be the global module 
-// Global Module :- console ;  The module which can't be import that will be the global module
-// Core Modules :- By-Default features of any progrmming language is core-modules 
+// What HTTP core module did (Interview Question)
+// HTTP module handle the server request and repsonse in the Node.js
 
-const fs = require("fs");
-console.log("HasCold");
-fs.writeFileSync("Hello2.txt","Feel Free and Independant Yourself");
-console.log("-->>",__dirname)
-console.log("-->>",__filename)
-
-// Another way to import file system
-const gs = require("fs").writeFileSync;
-gs("code.txt", "I am Here");
+http.createServer((req, res) => {
+   res.write("<h1>Hi, This is Hasan</h1>");
+   res.end();
+}).listen(4500);
