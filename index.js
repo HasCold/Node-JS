@@ -1,15 +1,15 @@
-const app = require("./app")
+// ******************* Global and Non-Global Module *****************
 
-var x = "20";
-// In Double equals to they check the value not type
-if(x==20){ 
-    console.log("Matched");
-}
-console.log(app.z());
+// Non Global Module :- FileSystem(fs), Buffer, HTTP ; The module which need to be import that will be the global module 
+// Global Module :- console ;  The module which can't be import that will be the global module
+// Core Modules :- By-Default features of any progrmming language is core-modules 
 
-const arr = [2,4,7,8,3,9];
-const result = arr.filter((item) => {
-    // filter method iterate the array and it only executes on the array
-    return item >3;
-})
-console.log(result);
+const fs = require("fs");
+console.log("HasCold");
+fs.writeFileSync("Hello2.txt","Feel Free and Independant Yourself");
+console.log("-->>",__dirname)
+console.log("-->>",__filename)
+
+// Another way to import file system
+const gs = require("fs").writeFileSync;
+gs("code.txt", "I am Here");
