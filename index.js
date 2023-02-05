@@ -1,7 +1,8 @@
-// Nodemon package continuosly run the node.js ; you haven't run the node over and over again
-// whenever you need to install nodemon package :- npm i nodemon -g (-g shows globally installed nodemon on your system)
-// After you have installed the nodemon , run "nodemon ." for continuously run the Node.js
-// To exit nodemon, simply press CTRL + C in your terminal. 
-// Node js is async
+const http = require("http");  // http module to make an API for server request and response
+const data = require("./data");
 
-console.log("Try Nodemon with Node js...")
+http.createServer((req, res) => {
+    res.writeHead(200, {"Content-Type" : "application\json"});
+    res.write(JSON.stringify(data));
+    res.end();
+}).listen(5000);
