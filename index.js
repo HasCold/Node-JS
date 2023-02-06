@@ -1,16 +1,27 @@
+// CRUD -->> Create , Read , Update , Delete
+
 const fs = require("fs");
 const path = require("path");
-const dirPath = path.join(__dirname, "Files"); // Files folder path directory
+const dirPath = path.join(__dirname, "CRUD");
 console.log(dirPath);
+const filePath = `${dirPath}/code.txt`; 
 
-// we created files in the file directory by the loop
+// fs.writeFileSync(filePath, "This is a simple text file"); // -->> Create file
 
-// for( i = 0; i < 5; i++){
-//     fs.writeFileSync(dirPath+`/Code${i}.txt`, `A sample test file ${i}`);
-// }
+// fs.readFile(filePath,"utf-8",(error, item) => {  // Read file  ; utf-8 is a buffer
+//     console.log(item)
+// })
 
-fs.readdir(dirPath, (err, Files) => {
-    Files.forEach((item) => {
-        console.log("File name is", item);
-    })
-})
+// fs.appendFile(filePath, " and file name is code.txt", (err) => { // Update File
+//     if(!err) console.log("File is Updated ...");
+
+// });
+
+// fs.rename(filePath, `${dirPath}/node.txt`, (err) => {  // Rename file
+//     if(!err) console.log("File Renamed ...");
+// })
+
+fs.unlinkSync(`${dirPath}/node.txt`)   // Delete File
+
+// InterView Question
+// Buffer :- Means temporary memory location ; Node.js want some memory to perform the operation in our file system
