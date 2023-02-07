@@ -1,10 +1,15 @@
-console.log("Starting Up ...");
+// Express JS is a Node.js Framework ; npm i express
 
-setTimeout(() => {   // setTimeout() is a part of C++ and related to the Node APIs and Callback Queue ; setTimeout() is a inherit library of C++ that's why the function goes to the Node APIs (Means two programming languages interface) and also similar to this other library which we are using in node.js that will go into the Node API's block and CallBack Queue block ; 
-    console.log("2 seconds log ...");
-}, 2000);
-setTimeout(() => {
-    console.log("0 second log ...");
-}, 0);
+const express = require("express");
+const app = express();
 
-console.log("Finishing Up ...");
+app.get("", (req, res) => {
+    res.send("Welcome!, This is Home Page");
+});
+app.get("/about", (req, res) => {
+    res.send("Hello, This is About Page");
+});
+app.get("/help", (req, res) => {
+    res.send("Hello, This is Help Page");
+})
+app.listen(5000);
