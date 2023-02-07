@@ -1,23 +1,10 @@
-// ****************** Asynchronous and Synchronous *******************
+console.log("Starting Up ...");
 
-// In Synchronous operations task are perfromed one at a time
-// In Asynchronous operations, Second task do not wait to finish First task
+setTimeout(() => {   // setTimeout() is a part of C++ and related to the Node APIs and Callback Queue ; setTimeout() is a inherit library of C++ that's why the function goes to the Node APIs (Means two programming languages interface) and also similar to this other library which we are using in node.js that will go into the Node API's block and CallBack Queue block ; 
+    console.log("2 seconds log ...");
+}, 2000);
+setTimeout(() => {
+    console.log("0 second log ...");
+}, 0);
 
-// Node.js is Asynchronous and single-threaded  Programming Language
-
-// Handle DrawBack Of Asynchronous :--
-let a = 10;
-let b = 0;
-
-let waitingData = new Promise((resolve, reject) => {
-
-    setTimeout(() => {
-        resolve(20);
-    }, 2000)  // 2000 sec -->> 2 sec
-})
-waitingData.then((data) => {
-    b = data;
-    console.log(a+b);
-})
-
-
+console.log("Finishing Up ...");
