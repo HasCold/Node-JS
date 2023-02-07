@@ -1,27 +1,17 @@
-// CRUD -->> Create , Read , Update , Delete
+// ****************** Asynchronous and Synchronous *******************
 
-const fs = require("fs");
-const path = require("path");
-const dirPath = path.join(__dirname, "CRUD");
-console.log(dirPath);
-const filePath = `${dirPath}/code.txt`; 
+// In Synchronous operations task are perfromed one at a time
+// In Asynchronous operations, Second task do not wait to finish First task
 
-// fs.writeFileSync(filePath, "This is a simple text file"); // -->> Create file
+// Node.js is Asynchronous and single-threaded  Programming Language
 
-// fs.readFile(filePath,"utf-8",(error, item) => {  // Read file  ; utf-8 is a buffer
-//     console.log(item)
-// })
+// DrawBack Of Asynchronous :--
+let a = 10;
+let b = 0;
 
-// fs.appendFile(filePath, " and file name is code.txt", (err) => { // Update File
-//     if(!err) console.log("File is Updated ...");
+setTimeout(() => {
+    b = 20;
+}, 2000)  // 2000 sec -->> 2 sec
 
-// });
+console.log(a+b);
 
-// fs.rename(filePath, `${dirPath}/node.txt`, (err) => {  // Rename file
-//     if(!err) console.log("File Renamed ...");
-// })
-
-fs.unlinkSync(`${dirPath}/node.txt`)   // Delete File
-
-// InterView Question
-// Buffer :- Means temporary memory location ; Node.js want some memory to perform the operation in our file system
