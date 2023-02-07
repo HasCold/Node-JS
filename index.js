@@ -5,13 +5,19 @@
 
 // Node.js is Asynchronous and single-threaded  Programming Language
 
-// DrawBack Of Asynchronous :--
+// Handle DrawBack Of Asynchronous :--
 let a = 10;
 let b = 0;
 
-setTimeout(() => {
-    b = 20;
-}, 2000)  // 2000 sec -->> 2 sec
+let waitingData = new Promise((resolve, reject) => {
 
-console.log(a+b);
+    setTimeout(() => {
+        resolve(20);
+    }, 2000)  // 2000 sec -->> 2 sec
+})
+waitingData.then((data) => {
+    b = data;
+    console.log(a+b);
+})
+
 
