@@ -1,31 +1,12 @@
-// Render -->> Means Display 
-
 const express = require("express");
-const app = express();
+const path = require("path");
+// path :-- By path module we can access the folder of our project
 
-app.get("", (req, res) => {
-    res.send(`
-    <h1> Welcome! to Home Page </h1> <a href="/about">Go to About Page </a>
-    `);
-});
-app.get("/about", (req, res) => {
-    // How to get query parameters
-    res.send(`
-    <input type="text" placeholder= "User name"  value = "${req.query.name}"/>
-    <button>Click Me </button>
-    <a href="/">Go to Home Page </a>
-    `)
-});
-app.get("/help", (req, res) => {
-res.send([
-    {
-        name: "Hasan",
-        email: "ha123@gmail.com"
-    },
-    {
-        name: "Umer",
-        email: "umer23@gmail.com"
-    }
-]);
-})
+
+const app = express(); // app Means it is executed function of express ; express has another static function which we used below
+const publicPath = path.join(__dirname, "public");
+
+app.use(express.static(publicPath));
+// What is static method :-- static method load the static content of our pages
+
 app.listen(5000);
