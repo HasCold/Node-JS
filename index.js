@@ -18,6 +18,8 @@ app.get("/aboutme", (_, res) => {   // instead of req we use _ for short
 app.get("/help", (_, res) => {   // instead of req we use _ for short 
     res.sendFile(`${publicPath}/help.html`)
 })
+
+// How to laod the file in the get Method ; Interview Question 
 app.get("*", (_, res) => {   // * -->> we use this so by-Defalut the wrong URL page will be rendered the no-page.html 
     res.sendFile(`${publicPath}/noPage.html`)
 })
