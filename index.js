@@ -19,6 +19,7 @@ app.get("/profile", (_, res) => {   // instead of req we use _ for short
         name : "Hasan",
         email : "ha03@gmail.com",
         city : "Karachi",
+        age : "20",
     }
     res.render("profile", {user});
 });
