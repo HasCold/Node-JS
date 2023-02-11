@@ -1,0 +1,6 @@
+What is mongoDB ?
+
+1. MongoDB is a NoSQL database
+2. The data stored in a collection rather than the tables
+3. Collection don't have rows and columns
+4. Data is stored in the form of objects.

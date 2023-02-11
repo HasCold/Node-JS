@@ -1,0 +1,10 @@
+How to check the mongoDB installation confirmation using cmd 
+
+1. Install the latest version (or simply use latest version).
+2. Set the path of "C:\Program Files\MongoDB\Server\6.0\bin" in system environment variables by editing "path".
+3. Open "cmd" and type "mongod --version" in place of "mongo --version".
+
+
+Interview Question :- 
+Q) Tell any mongoDB GUI tool ?
+A) mongoDB compass tool
