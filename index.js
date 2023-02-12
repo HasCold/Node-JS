@@ -1,4 +1,4 @@
-//   npm i mongodb  -->> The official Mongodb driver for Node.js
+//   npm i mongodb  -->> The official Mongodb driver for Node.js;
 
 // Instead of using localhost we use 127.0.0.1
 // The reason for this is that "localhost" and "127.0.0.1" both refer to the same IP address, which is the loopback address on the local machine.

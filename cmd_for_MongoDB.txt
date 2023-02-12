@@ -1,6 +1,6 @@
                            Some Commands Of MongoDB
 
-1. show databases
+1. show databases;
 2. use youtube -->> create a database via cmd line ; if you have never create a collection so your database can't able to see
 3. db.createCollection("playlist") -->> created a collection in your youtube database
 4. db.playlist.drop() -->> Means you successfully deleted the collection 
