@@ -11,7 +11,7 @@ const dbConnect = require("./mongodb")
 // 2. -->> 
 const main = async () => {
     let data = await dbConnect();
-    data = await data.find({}).toArray();
+    data = await data.find({}).toArray();  // Read data from database
     console.log(data);
 }
 
