@@ -8,6 +8,7 @@
 const express = require("express");
 const dbConnect = require("./mongodb");
 const app = express();
+const mongoDb = require("mongodb");
 
 // Interview Question
 // What will you use to get body from request ?? 
@@ -38,6 +39,13 @@ app.put("/:name", async (req, res) => {
         )
     console.log(result);
     res.send({result: "update"});
+})
+
+app.delete("/:id", async (req, res) => {
+    console.log(req.params.id);
+    const data = await dbConnect();
+    const result = await data.deleteOne({_id : new mongoDb.ObjectId(req.params.id)})  // we have to create ObjectId instance
+    res.send(result);
 })
 
 app.listen(5000);
