@@ -11,7 +11,7 @@ const app = express();
 
 // Interview Question
 // What will you use to get body from request ?? 
-// A) express.json()  /  OR  /  body.parser (But in the older version of express)
+// A) express.json()  /  OR  /  body.parser (But in the older version of  express js)
 
 app.use(express.json());  // We can get data from POSTman to node.js
 
@@ -28,6 +28,16 @@ app.post("/", async (req, res) => {
     let result = await data.insertOne(req.body)
     res.send(result)  // -->> Jo API hame response degi
     console.log(result);
+})
+
+app.put("/:name", async (req, res) => {
+    let data = await dbConnect();
+    let result = await data.updateOne(
+        {name : req.params.name}, // Query params  // 1. -->> What collection should be changed / condition 
+        {$set : req.body}    // 2. -->> Data passed on our databases
+        )
+    console.log(result);
+    res.send({result: "update"});
 })
 
 app.listen(5000);
