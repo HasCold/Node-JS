@@ -1,28 +1,21 @@
+// multer npm package :- Multer is a node.js middleware for handling multipart/form-data, which is primarily used for uploading files. It is written on top of busboy for maximum efficiency.  npm i multer
+
 const express = require("express");
-require("./config");
-const Product = require("./product");
+const multer = require("multer");
+const app = express();  // make express fucntion executable in app 
 
-const app = express();
-app.use(express.json());
-
-app.get("/search/:key", async (req, res) => {  // -->> FIND OR READ method
-    console.log(req.params.key);
-    let data = await Product.find(
-        {
-            "$or" : [
-                {"name" : {$regex : req.params.key}},
-                {"brand" : {$regex : req.params.key}},
-                {"category": {$regex : req.params.key}}
-            ]
+const uplaod = multer({  // It is a middleware ; we will use as a second parameter in a route
+    storage:multer.diskStorage({
+        destination:function(req, file, cb){   // cb -->> refers to callback
+            cb(null, "uploads")
+        },
+        filename:function(req, file, cb){
+            cb(null, file.fieldname + "-" + Date.now() + ".jpg")
         }
-    );
-    res.send(data);
+    })
+}).single("user_file");
+
+app.post("/upload", uplaod, (req, res) => {
+    res.send("Upload Done");
 })
-
 app.listen(5000);
-
-// Interview Question : - 
-
-// Q. Does id put in the body or query params ??
-// A. In the DELETE method we put id directly into the body ; 
-// But in the PUT method , it is upto you whether you have to put id  in the query params or body
