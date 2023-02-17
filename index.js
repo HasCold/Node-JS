@@ -1,10 +1,27 @@
-// (OS) Operating System Module in Node.js  -->> Those projects in which we have to find the information of our operating system then OS module of node.js will be helpful for us
+const express = require("express");
+const EventEmitter = require("events");  // events -->> In-Built module ; we take a EventEmitter in capital so it means it takes as a class  
+const app = express();
+const event = new EventEmitter;
 
-const os = require("os");
-// console.log(os.arch());  // -->> Operating System Architecture
-// console.log(os.freemem()/(1024*1024*1024));  // freemem() It shows the free memory in your system in bytes but after the divide it shows the value in GB ;
-// console.log(os.totalmem()/(1024*1024*1024));  // totalmem() -->> shows total memory in your system
+// We have to check how many API's being called in the system
 
-console.log(os.hostname());
-console.log(os.platform());  // -->> window 32
-console.log(os.userInfo());  
+let count = 0;
+// we have to handle event like this
+event.on("count API", () => {  // Jaise hi hamara count API call hoga tu ye code execute hogae ga ;
+    console.log("Event Called for", count++, "time")
+})
+
+app.get("/", (req, res) => {
+    res.send("api called");
+    event.emit("count API");
+})
+app.get("/search", (req, res) => {
+    res.send("Search api called");
+    event.emit("count API");  // Jitni baar ye event call hoga utni barr event emit hoga
+})
+app.get("/update", (req, res) => {
+    res.send("Update api called");
+    event.emit("count API");
+})
+
+app.listen(5000);
