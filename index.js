@@ -1,27 +1,12 @@
-const express = require("express");
-const EventEmitter = require("events");  // events -->> In-Built module ; we take a EventEmitter in capital so it means it takes as a class  
-const app = express();
-const event = new EventEmitter;
+// REPL stands for "Read-Eval-Print Loop". It is a feature in Node.js that allows you to interactively run and test JavaScript code.
+// Eval -->> Evaluate
 
-// We have to check how many API's being called in the system
+// With Node.js REPL, you can type JavaScript code and immediately see the results of its execution. The REPL provides a prompt where you can enter your code, and it will evaluate the code and display the result.
 
-let count = 0;
-// we have to handle event like this
-event.on("count API", () => {  // Jaise hi hamara count API call hoga tu ye code execute hogae ga ;
-    console.log("Event Called for", count++, "time")
-})
+// The Node.js REPL can be accessed by typing "node" in your terminal or command prompt. Once you start the Node.js REPL, you can enter JavaScript code and see the results immediately. For example, if you type "2 + 2" in the REPL, it will return 4.
 
-app.get("/", (req, res) => {
-    res.send("api called");
-    event.emit("count API");
-})
-app.get("/search", (req, res) => {
-    res.send("Search api called");
-    event.emit("count API");  // Jitni baar ye event call hoga utni barr event emit hoga
-})
-app.get("/update", (req, res) => {
-    res.send("Update api called");
-    event.emit("count API");
-})
+// Yes, that's correct. REPL (Read-Eval-Print Loop) in Node.js allows you to run JavaScript code directly on your terminal/command prompt. It provides an interactive environment where you can enter and execute JavaScript code snippets, one line at a time, and see the results immediately.
 
-app.listen(5000);
+// Press Ctrl+C to abort current expression, Ctrl+D to exit the REPL  in the cmd prompt
+
+// command -->> .help  = You can see all the commands of REPL
