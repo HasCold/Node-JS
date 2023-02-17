@@ -1,21 +1,10 @@
-// multer npm package :- Multer is a node.js middleware for handling multipart/form-data, which is primarily used for uploading files. It is written on top of busboy for maximum efficiency.  npm i multer
+// (OS) Operating System Module in Node.js  -->> Those projects in which we have to find the information of our operating system then OS module of node.js will be helpful for us
 
-const express = require("express");
-const multer = require("multer");
-const app = express();  // make express fucntion executable in app 
+const os = require("os");
+// console.log(os.arch());  // -->> Operating System Architecture
+// console.log(os.freemem()/(1024*1024*1024));  // freemem() It shows the free memory in your system in bytes but after the divide it shows the value in GB ;
+// console.log(os.totalmem()/(1024*1024*1024));  // totalmem() -->> shows total memory in your system
 
-const uplaod = multer({  // It is a middleware ; we will use as a second parameter in a route
-    storage:multer.diskStorage({
-        destination:function(req, file, cb){   // cb -->> refers to callback
-            cb(null, "uploads")
-        },
-        filename:function(req, file, cb){
-            cb(null, file.fieldname + "-" + Date.now() + ".jpg")
-        }
-    })
-}).single("user_file");
-
-app.post("/upload", uplaod, (req, res) => {
-    res.send("Upload Done");
-})
-app.listen(5000);
+console.log(os.hostname());
+console.log(os.platform());  // -->> window 32
+console.log(os.userInfo());  
